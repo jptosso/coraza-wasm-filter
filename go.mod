@@ -22,4 +22,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
 
-replace github.com/corazawaf/coraza/v3 => github.com/anuraaga/coraza/v3 v3.0.0-20220817065602-91e47b0de07b
+replace github.com/corazawaf/coraza/v3 => github.com/anuraaga/coraza/v3 v3.0.0-20220818011836-016a42c9b668
