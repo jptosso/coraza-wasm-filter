@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/corazawaf/coraza/v3 v3.0.0-20220818013656-f749c07295aa
 	github.com/stretchr/testify v1.7.1
-	github.com/tetratelabs/proxy-wasm-go-sdk v0.18.1-0.20220510133519-6240ca761207
+	github.com/tetratelabs/proxy-wasm-go-sdk v0.19.1-0.20220822060051-f9d179a57f8c
 	github.com/tidwall/gjson v1.14.2
 )
 
@@ -23,5 +23,3 @@ require (
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/tetratelabs/proxy-wasm-go-sdk => github.com/anuraaga/proxy-wasm-go-sdk v0.19.1-0.20220822033207-d1b72cb131c3

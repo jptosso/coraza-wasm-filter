@@ -1,6 +1,4 @@
 github.com/anuraaga/go-modsecurity v0.0.0-20220816070944-f36055ce7d5d/go.mod h1:7jguE759ADzy2EkxGRXigiC0ER1Yq2IFk2qNtwgzc7U=
-github.com/anuraaga/proxy-wasm-go-sdk v0.19.1-0.20220822033207-d1b72cb131c3 h1:Ws8Wh7spoC0+cSsgaFNIVe0suMABAjNjJk5/Ygk8Bcg=
-github.com/anuraaga/proxy-wasm-go-sdk v0.19.1-0.20220822033207-d1b72cb131c3/go.mod h1:eyKS/FihBA7tDZNMoHRiHiDo4g1llP9Q1g8yeGhGrmI=
 github.com/corazawaf/coraza/v3 v3.0.0-20220818013656-f749c07295aa h1:VcGQMo37Il7VWGGaTKfDs+/1BaJaDEFiwuq6N39uKDg=
 github.com/corazawaf/coraza/v3 v3.0.0-20220818013656-f749c07295aa/go.mod h1:WhAgJsa8yn/1Yx25VbLaRmPLOUAT0vkA5TzlVOkXsMc=
 github.com/corazawaf/libinjection-go v0.0.0-20220207031228-44e9c4250eb5 h1:SukhxLQRRBM3nJFEUF+ePG7l0JTWAvaxaG/o6X/FQVY=
@@ -27,6 +25,8 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.1 h1:5TQK59W5E3v0r2duFAb7P95B6hEeOyEnHRa8MjYSMTY=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/tetratelabs/proxy-wasm-go-sdk v0.19.1-0.20220822060051-f9d179a57f8c h1:OCUFXVGixHLfNjg6/QYEhv+jHJ5mRGhpEUVFv9eWPJE=
+github.com/tetratelabs/proxy-wasm-go-sdk v0.19.1-0.20220822060051-f9d179a57f8c/go.mod h1:5t/pWFNJ9eMyu/K/Z+OeGhDJ9sN9eCo8fc2pyM/Qjg4=
 github.com/tetratelabs/wazero v0.0.0-20220819021810-7f8e629c653f h1:+InPNMTyR4bufxW+MzqigSOXpe9Ph++NOIz/N9wtEYs=
 github.com/tetratelabs/wazero v0.0.0-20220819021810-7f8e629c653f/go.mod h1:CD5smBN5rGZo7UNe8aUiWyYE3bDWED/CQSonog9NSEg=
 github.com/tidwall/gjson v1.14.2 h1:6BBkirS0rAHjumnjHF6qgy5d2YAJ1TLIaFE2lzfOLqo=
