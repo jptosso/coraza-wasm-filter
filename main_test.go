@@ -202,6 +202,7 @@ SecRuleEngine On\nSecResponseBodyAccess On\nSecRule RESPONSE_BODY \"@contains yo
 				require.Equal(t, types.ActionContinue, action)
 
 				action = host.CallOnResponseBody(id, respBody, true)
+				require.Equal(t, types.ActionContinue, action)
 
 				// Call OnHttpStreamDone.
 				host.CompleteHttpContext(id)
