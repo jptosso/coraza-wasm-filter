@@ -48,6 +48,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-tinygo-
 
+      - name: Run code checks
+        run: go run mage.go lint
+
       - name: Build WASM filter
         run: go run mage.go build
 
