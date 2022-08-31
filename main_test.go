@@ -199,7 +199,8 @@ SecRuleEngine On\nSecResponseBodyAccess On\nSecRule RESPONSE_BODY \"@contains he
 				if tt.rules != "" {
 					conf = fmt.Sprintf(`
 					{
-						"rules" : "%s"
+						"rules" : "%s",
+						"include_core_rule_set": false
 					}	
 				`, strings.TrimSpace(tt.rules))
 				}
@@ -272,15 +273,6 @@ func TestBadConfig(t *testing.T) {
 			name: "bad json",
 			conf: "{",
 			msg:  `error parsing plugin configuration: invalid json: "{"`,
-		},
-		{
-			name: "no rules",
-			conf: `
-	{
-		"sules" : "SecRuleEngine On\nSecRule REQUEST_URI \"@streq /admin\" \"id:101,phase:1,t:lowercase,deny\""
-	}
-`,
-			msg: "error parsing plugin configuration: missing rules: ",
 		},
 		{
 			name: "bad rules",
@@ -499,7 +491,8 @@ func TestLogError(t *testing.T) {
 			t.Run(fmt.Sprintf("%d", tt.severity), func(t *testing.T) {
 				conf := fmt.Sprintf(`
 {
-	"rules" : "SecRule REQUEST_HEADERS:X-CRS-Test \"@rx ^.*$\" \"id:999999,phase:1,log,severity:%d,msg:'%%{MATCHED_VAR}',pass,t:none\""
+	"rules" : "SecRule REQUEST_HEADERS:X-CRS-Test \"@rx ^.*$\" \"id:999999,phase:1,log,severity:%d,msg:'%%{MATCHED_VAR}',pass,t:none\"",
+	"include_core_rule_set": false
 }
 `, tt.severity)
 
@@ -521,6 +514,20 @@ func TestLogError(t *testing.T) {
 				require.Contains(t, logs, "for the win!")
 			})
 		}
+	})
+}
+
+func TestParseCRS(t *testing.T) {
+	vmTest(t, func(t *testing.T, vm types.VMContext) {
+		opt := proxytest.
+			NewEmulatorOption().
+			WithVMContext(vm).
+			WithPluginConfiguration([]byte{})
+
+		host, reset := proxytest.NewHostEmulator(opt)
+		defer reset()
+
+		require.Equal(t, types.OnPluginStartStatusOK, host.StartPlugin())
 	})
 }
 

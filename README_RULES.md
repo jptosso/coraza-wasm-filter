@@ -1,0 +1,6 @@
+- 00-modsecurity.conf: `SecRequestBodyJsonDepthLimit` not supported
+- 00-modsecurity.conf: `SecAuditLogRelevantStatus` uses syntax not supported with re2
+- 00-modsecurity.conf: `SecStatusEngine` not supported
+- REQUEST-920-PROTOCOL-ENFORCEMENT: Identify multipart/form-data name evasion attempts uses syntax not supported with re2
+- REQUEST-942-APPLICATION-ATTACK-SQLI: SQL Tautologies uses syntax not supported with re2
+- RESPONSE-953-DATA-LEAKAGES-PHP: `"@rx <\?(?!xml)"` not supported with re2
