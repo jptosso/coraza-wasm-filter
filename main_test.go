@@ -518,6 +518,9 @@ func TestLogError(t *testing.T) {
 }
 
 func TestParseCRS(t *testing.T) {
+	if os.Getenv("CRS_TEST") == "" {
+		t.Skip("CRS_TEST is not set")
+	}
 	vmTest(t, func(t *testing.T, vm types.VMContext) {
 		opt := proxytest.
 			NewEmulatorOption().
