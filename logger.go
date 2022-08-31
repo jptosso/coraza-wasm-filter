@@ -1,10 +1,13 @@
+// Copyright 2022 The OWASP Coraza contributors
+// SPDX-License-Identifier: Apache-2.0
+
 package main
 
 import (
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
 	"io"
 
 	"github.com/corazawaf/coraza/v3"
+	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
 )
 
 type debugLogger struct {
