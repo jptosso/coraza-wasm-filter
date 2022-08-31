@@ -60,7 +60,7 @@ func Lint() error {
 
 // Test runs all tests.
 func Test() error {
-	return sh.RunV("go", "test", "./...")
+	return sh.RunV("go", "test", "-v", "./...")
 }
 
 // Coverage runs tests with coverage and race detector enabled.
