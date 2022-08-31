@@ -20,6 +20,10 @@ import (
 	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
 )
 
+const emptyConf = `{
+  "include_core_rule_set": false
+}`
+
 func TestLifecycle(t *testing.T) {
 	reqHdrs := [][2]string{
 		{":path", "/hello"},
@@ -195,15 +199,12 @@ SecRuleEngine On\nSecResponseBodyAccess On\nSecRule RESPONSE_BODY \"@contains he
 			tt := tc
 
 			t.Run(tt.name, func(t *testing.T) {
-				conf := ""
-				if tt.rules != "" {
-					conf = fmt.Sprintf(`
+				conf := fmt.Sprintf(`
 					{
 						"rules" : "%s",
 						"include_core_rule_set": false
 					}	
 				`, strings.TrimSpace(tt.rules))
-				}
 				opt := proxytest.
 					NewEmulatorOption().
 					WithVMContext(vm).
@@ -335,7 +336,7 @@ func TestBadRequest(t *testing.T) {
 				opt := proxytest.
 					NewEmulatorOption().
 					WithVMContext(vm).
-					WithPluginConfiguration([]byte{})
+					WithPluginConfiguration([]byte(emptyConf))
 
 				host, reset := proxytest.NewHostEmulator(opt)
 				defer reset()
@@ -376,7 +377,7 @@ func TestBadResponse(t *testing.T) {
 				opt := proxytest.
 					NewEmulatorOption().
 					WithVMContext(vm).
-					WithPluginConfiguration([]byte{})
+					WithPluginConfiguration([]byte(emptyConf))
 
 				host, reset := proxytest.NewHostEmulator(opt)
 				defer reset()
@@ -400,7 +401,7 @@ func TestEmptyBody(t *testing.T) {
 		opt := proxytest.
 			NewEmulatorOption().
 			WithVMContext(vm).
-			WithPluginConfiguration([]byte{})
+			WithPluginConfiguration([]byte(emptyConf))
 
 		host, reset := proxytest.NewHostEmulator(opt)
 		defer reset()
