@@ -46,5 +46,5 @@ func (l *debugLogger) SetLevel(level coraza.LogLevel) {
 }
 
 func (l *debugLogger) SetOutput(w io.Writer) {
-	panic("not supported")
+	proxywasm.LogWarn("ignoring SecDebugLog directive, debug logs are always routed to proxy logs")
 }
