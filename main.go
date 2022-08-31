@@ -79,6 +79,12 @@ func (ctx *corazaPlugin) OnPluginStart(pluginConfigurationSize int) types.OnPlug
 		return types.OnPluginStartStatusFailed
 	}
 
+	err = parser.FromString(config.rules)
+	if err != nil {
+		proxywasm.LogCriticalf("failed to parse rules: %v", err)
+		return types.OnPluginStartStatusFailed
+	}
+
 	if config.includeCRS {
 		err = fs.WalkDir(crs, ".", func(path string, d fs.DirEntry, err error) error {
 			if err != nil {
@@ -100,12 +106,6 @@ func (ctx *corazaPlugin) OnPluginStart(pluginConfigurationSize int) types.OnPlug
 			proxywasm.LogCriticalf("failed to parse core rule set: %v", err)
 			return types.OnPluginStartStatusFailed
 		}
-	}
-
-	err = parser.FromString(config.rules)
-	if err != nil {
-		proxywasm.LogCriticalf("failed to parse rules: %v", err)
-		return types.OnPluginStartStatusFailed
 	}
 
 	ctx.waf = waf

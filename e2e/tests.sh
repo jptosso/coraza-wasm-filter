@@ -7,7 +7,7 @@
 
 step=1
 total_steps=3
-max_retries=10 #seconds for the server reachability timeout
+max_retries=100 #seconds for the server reachability timeout
 host=${1:-localhost}
 health_url="http://${host}:8001"
 unfiltered_url="http://${host}:8001/home"
