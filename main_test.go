@@ -283,11 +283,10 @@ SecRuleEngine On\nSecResponseBodyAccess On\nSecRule RESPONSE_BODY \"@contains he
 
 				id := host.InitializeHttpContext()
 
-				requestHdrsAction := types.ActionPause
 				requestBodyAction := types.ActionPause
 				responseHdrsAction := types.ActionPause
 
-				requestHdrsAction = host.CallOnRequestHeaders(id, reqHdrs, false)
+				requestHdrsAction := host.CallOnRequestHeaders(id, reqHdrs, false)
 				require.Equal(t, tt.requestHdrsAction, requestHdrsAction)
 
 				// Stream bodies in chunks of 5
